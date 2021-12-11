@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
     before_action :set_page, except: [:index, :new, :create]
+    
     def index
         @pages = Page.all
     end
@@ -34,7 +35,7 @@ class PagesController < ApplicationController
         def page_params
             params.require(:page).permit(:title, :body, :slug)
         end
-
+ 
         def set_page
             @page = Page.find(params[:id])
         end
